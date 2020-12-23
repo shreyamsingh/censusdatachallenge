@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Census Data</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.css'>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Karla:wght@500&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/topojson.v1.min.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+<div id="fullpage">
+  <section class="vertical-scrolling">
+   <div class="rectangle">
+      <p id='title'>the wage gap: an analysis of census data</p>
+   </div>
+   <p id='titleDesc'>how the wage gap leads to a vicious cycle in underserved communities</p>
+   <footer><a href='#aboutMe'><i class="fa fa-chevron-down" style="font-size:20px; position: fixed; bottom: 10px; color: #7575CF"></i></a></footer>
+  </section>
+  <section class="vertical-scrolling">
+    <h1 style='color: #231438;'>a bit about me and my community</h1>
+    <br>
+    <h3 style='color: white; margin: 35px;'>I live in a D.C. suburb in Northern Virginia and I have always grown up comfortably. Knock on wood,
+   but my family hasn't had serious food struggles or rainy days. According
+   to the <a href="https://data.census.gov/cedsci/table?q=ACSDP1Y2019.DP03%20Virginia&g=0400000US51&tid=ACSDP1Y2019.DP03&hidePreview=true" target='_blank' style='color: #afc8f0'><u>2019 American Community Survey 1-Year Estimates</u></a>,
+   Virginia has a median household income of <span style='color: #75e6ab'>$76,456</span>, which is <span style='color: #eb8163'>$10,744</span> more
+   than the national median. However, despite statistics that make Virginia seem like a well-to-do state, certain areas are not doing well.
+   Perhaps more saddening, it is only getting more difficult for those in poverty in these areas to get back on 
+   their feet.</h3>
+  </section>
+  <section class="vertical-scrolling">
+     <div class='row'>
+      <div class="column">
+         <img src="medianincome.png" alt="Graph Showing Median Income">
+         <h3 style='color: grey; font-size: 20px'>source: 2010-2019 American Community Survey 5-Year Estimates</h3>
+      </div>
+      <div class="column">
+         <h1>median income</h1>
+         <h3 style='margin:30px; font-size:20px'>Dickenson County is the county with the <a href="https://data.census.gov/cedsci/table?q=ACSDP1Y2019.DP03%20Virginia&g=0400000US51.050000&tid=ACSDP5Y2019.DP03&hidePreview=true" target="_blank" style='color: #8fb5f2'><u>lowest median income</u></a>
+            in Virginia. As you can see, compared to Fairfax County (the county that I live in) and Loudoun County (the county with the highest
+            median income), there has been a large gap in the median incomes in the past 10 years.</h3>
+            <h3 style='margin:30px; font-size:20px'>
+            To understand this gap, let's compare Loudoun and Dickenson County. Loudoun ended 2019 with a 
+            median income of $142,299 and Dickenson with $29,932, a little over <strong><span style='color: #eb8163'>one-fifth</span></strong> of that.
+            Just to put that into perspective, if you took 29,932 one-dollar bills and stacked them up on top of one another, it would be around 80% of the length of a Volkswagen Beetle.
+            Do the same thing with 142,299 one-dollar bills, and your stack is <strong>longer than a semitrailer</strong>.
+         </h3>
+       </div>
+     </div>
+     
+  </section>
+  <section class="vertical-scrolling">
+   <div class='row'>
+      <div class="column">
+         <h1 style='color: white; font-size: 6em'>educational attainment</h1>
+         <h3 style='margin:30px; font-size:20px; color: white'>The graph to the right shows the percentage of people (aged 25 and older) who have received a bachelor's degree or higher. Yet again, while
+         we see an upwards trend for Loudoun, Fairfax, Virginia, and the US, Dickenson County remains stagnant. This is both a cause and a product of the low median income we saw earlier. According to
+         <a href='https://www.pewsocialtrends.org/2014/02/11/the-rising-cost-of-not-going-to-college/' target='_blank' style='color: #afc8f0'><u>The Pew Research Center</u></a>, college graduates
+         aged 25-32 earned around <strong><span style='color: #75e6ab'>$17,500</span></strong> more than those with a high school degree, a gap that grows as new graduates get higher-level (and higher-paying) positions.</h3>
+         <h3 style='margin:30px; font-size:20px; color: white'>There is a reason for this. From the
+            <a href='https://nces.ed.gov/fastfacts/display.asp?id=76' target='_blank' style='color: #afc8f0'><u>National Center for Education Statistics</u></a>, the average annual cost of going to college in the 
+            2017-18 schoolyear was <strong><span style='color: #eb8163'>$17,797</span></strong> (and $20,050 for a four-year institution). Lower-income families simply cannot afford to send their children to college.
+         </h3>
+      </div>
+      <div class="column">
+         <img style='margin-right:50px' src="educationalattainment.png" alt="Graph Showing Educational Attainment">
+         <h3 style='color: lightgray; font-size: 20px; margin-right: 50px'>source: 2010-2019 American Community Survey 5-Year Estimates</h3>
+       </div>
+     </div>
+  </section>
+  <section class="vertical-scrolling">
+   <div class='row'>
+      <div class="column">
+         <img src="poverty.png" alt="Graph Showing Percentage of Children Under 18 in Poverty">
+         <h3 style='color: grey; font-size: 20px'>source: 2010-2019 American Community Survey 5-Year Estimates</h3>
+      </div>
+      <div class="column">
+         <h1>children in poverty</h1>
+         <h3 style='margin:30px; font-size:20px'>Likely a ramification of the previous two graphs, it is clear that the percentage of children in Dickenson County whose family income is below the poverty 
+         level is much greater than in any of the other four geographies. This also goes to show some of the impacts a low median income has on children. It is clear why Dickenson County has poor educational
+         attainment: the two variables have a strong correlation, as seen in <a href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2528798/' target='_blank' style='color: #8fb5f2'><u>this article</u></a>.</h3>
+         </h3>
+         <h3 style='margin:30px; font-size:20px'>Poverty at a young age has numerous effects. For example, according to <a href='https://pediatrics.aappublications.org/content/137/4/e20160339' target='_blank' style='color: #8fb5f2'><u>
+         this article</u></a>, children in poverty cannot receive the healthcare they need, leading to many potential health issues. Additionally, eating healthy may not be an option, let alone even thinking about going to college.
+         </h3>
+       </div>
+     </div>
+  </section>
+  <section class="vertical-scrolling">
+      <div class='row'>
+         <div id="temp" class='column'>
+            <script src="map.js"></script>
+         </div>
+         <div id="temp" class='column'>
+            <h1 style='color: white'>race vs. poverty</h1>
+            <h3 style='margin:30px; font-size:20px; color: white'>The interactive map at the left explores poverty in comparison to race at a national level. A darker shade of blue 
+            indicates a higher percentage of county citizens in poverty and a darker shade of red indicates a higher percentage of African-American citizens.</h3>
+            <h3 style='margin:30px; font-size:20px; color: white'>Almost the entire map is either dark purple or a light color. This goes to show some of the underlying
+            problems in our country. As previously mentioned, it is difficult to get out of poverty if you have been raised in a household below the poverty line.
+            As African-American communities are more likely to be under the poverty line, we must take steps to help get these citizens back 
+            on their feet, especially given the many barriers those in underserved communities must face.</h3>
+         </div>
+      </div>
+
+  </section>
+</div>
+ 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.min.js'></script>
+<script  src="function.js"></script>
+ 
+</body>
+</html>

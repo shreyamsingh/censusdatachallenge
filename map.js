@@ -35,7 +35,7 @@ svg.append("rect").transition().duration(500)
 d3.select('body')
    .append('div')
    .attr('id', 'tooltip')
-   .attr('style', "border-radius: 10px; padding: 5px; position: absolute; opacity: 0; color: #343434; background-color: gray; color: white;");
+   .attr('style', "border-radius: 10px; padding: 5px; position: absolute; opacity: 0; color: #343434; background-color: gray; color: white; font-family: Karla;");
 
 let eduMap = d3.map();
 let povMap = d3.map();
@@ -69,9 +69,9 @@ svg.append("g")
    .attr("class", "county")
    .style("fill", d => eduScale(eduMap.get(d.id)))
    .style("opacity", 0.5)
+   
 //.transition().delay(1000).style("fill", d => povScale(povMap.get(d.id)))
 
-console.log("check 1")
 svg.append("g")
    .selectAll("path")
    .data(geojson.features)
@@ -104,3 +104,89 @@ svg.append("path")
    .attr("d", path)
 d3.select(".spinner-grow").remove()
 }
+const step = 15;
+var counter = 0;
+
+var colors = ['#f04326', '#BC445A', '#87448E',
+            '#EDA093', '#b782bd', '#5f5dcf', 
+            '#E0D4E3', '#889CF8', '#1d44f5']
+var squareGroup = svg.append('g').attr("transform", "translate(680, 520) rotate(-45)");
+for (var i = 0; i < 3; i++) {
+   for (var j = 0; j < 3; j++) {
+      squareGroup.append('rect')
+      .attr('x', j*step)
+      .attr('y', i*step)
+      .attr('width', step)
+      .attr('height', step)
+      .attr('fill', colors[counter]);
+      counter++;
+   }
+   
+}
+var povText = svg.append('g').attr("transform", "translate(722, 562) rotate(-45)");
+povText.append('text')
+   .text('Poverty')
+   .style('fill', 'white')
+   .style('font-family', 'Karla');
+
+var raceText = svg.append('g').attr("transform", "translate(665, 530) rotate(45)");
+raceText.append('text')
+   .attr('x', 3)
+   .text('African-')
+   .style('fill', 'white')
+   .style('font-family', 'Karla');
+raceText.append('text')
+   .attr('y', 10)
+   .text('American')
+   .style('fill', 'white')
+   .style('font-family', 'Karla');
+
+// arrow 1 (race)
+var arrow1 = svg.append('g');
+arrow1.append('line')
+   .style('stroke', '#FFFFFF')
+   .style('stroke-width', 2)
+   .attr('x1', 712)
+   .attr('x2', 680)
+   .attr('y1', 552)
+   .attr('y2', 520)
+arrow1.append('line')
+   .style('stroke', '#FFFFFF')
+   .style('stroke-width', 2)
+   .attr('x1', 680)
+   .attr('x2', 690)
+   .attr('y1', 520)
+   .attr('y2', 522)
+arrow1.append('line')
+   .style('stroke', '#FFFFFF')
+   .style('stroke-width', 2)
+   .attr('x1', 680)
+   .attr('x2', 682)
+   .attr('y1', 520)
+   .attr('y2', 530)
+
+
+// arrow 2 (poverty)
+var arrow2 = svg.append('g');
+arrow2.append('line')
+   .style('stroke', '#FFFFFF')
+   .style('stroke-width', 2)
+   .attr('x1', 712)
+   .attr('x2', 744)
+   .attr('y1', 552)
+   .attr('y2', 520)
+
+arrow2.append('line')
+   .style('stroke', '#FFFFFF')
+   .style('stroke-width', 2)
+   .attr('x1', 744)
+   .attr('x2', 734)
+   .attr('y1', 520)
+   .attr('y2', 522)
+arrow2.append('line')
+   .style('stroke', '#FFFFFF')
+   .style('stroke-width', 2)
+   .attr('x1', 744)
+   .attr('x2', 742)
+   .attr('y1', 520)
+   .attr('y2', 530)
